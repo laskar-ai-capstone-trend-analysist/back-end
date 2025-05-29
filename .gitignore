@@ -1,0 +1,6 @@
+# .env file
+.env
+
+# pip environment file
+Pipfile
+Pipfile.lock

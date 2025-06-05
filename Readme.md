@@ -194,7 +194,7 @@ Mengambil semua product dengan kategori tertentu
 
 #### Query Parameters
 
-- `category` (string, required): Category ID to filter products.
+- `category` (string, required): category id untuk filter product.
 
 #### Responses
 
@@ -236,7 +236,7 @@ Mengambil semua review berdasarkan product tertentu
 
 #### Query Parameters
 
-- `product` (string, required): Product ID to filter reviews.
+- `product` (string, required): product id untuk filter review.
 
 #### Responses
 
@@ -275,7 +275,7 @@ Mengambil semua review dengan kategori tertentu
 
 #### Query Parameters
 
-- `category` (string, required): Category ID to filter reviews.
+- `category` (string, required): category id untuk filter review.
 
 #### Responses
 

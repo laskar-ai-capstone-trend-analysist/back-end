@@ -61,3 +61,247 @@ Repository ini berisi kode untuk layanan back-end pada proyek product trend anal
   ```
 
   - Proyek siap digunakan
+
+<br>
+<br>
+
+## REST API Documentation
+
+`Base url : localhost:5000`
+
+### GET /getAllProduct
+
+Mengambil semua product
+
+#### Query Parameters
+
+_None_
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "categoryId": 1,
+        "currentPrice": 46999,
+        "discount": 59.13,
+        "id": 1,
+        "imgUrl": "https://images.tokopedia.net/img/cache/500-square/aphluv/1997/1/1/d2258014fd4b4e8dacf82c30502bc26d~.jpeg.webp?ect=4g",
+        "name": "(BELI 2pcs DAPAT HADIAH) BITZEN Ikat Pinggang Pria Premium Dengan Bahan Aluminium Zinc Alloy dan Nylon Canvas Sabuk - Hitam, 120",
+        "originalPrice": 115000,
+        "stock": 376
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```
+
+---
+
+### GET /getAllCategory
+
+Mengambil semua kategori produk
+
+#### Query Parameters
+
+_None_
+
+#### Responses
+
+- **200 OK**:
+
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "id": 1,
+        "name": "Aksesoris"
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```
+
+---
+
+### GET /getAllReview
+
+Mengambil semua data review
+
+#### Query Parameters
+
+_None_
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "id": 1,
+        "productId": 13,
+        "rating": 5,
+        "review": "gelang kirim seller ramah tanggung dana terimakasih seller",
+        "tanggal": "Tue, 01 Apr 2025 10:55:59 GMT"
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```
+
+---
+
+### GET /getAllProductByCategory
+
+Mengambil semua product dengan kategori tertentu
+
+#### Query Parameters
+
+- `category` (string, required): Category ID to filter products.
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "categoryId": 1,
+        "currentPrice": 46999,
+        "discount": 59.13,
+        "id": 1,
+        "imgUrl": "https://images.tokopedia.net/img/cache/500-square/aphluv/1997/1/1/d2258014fd4b4e8dacf82c30502bc26d~.jpeg.webp?ect=4g",
+        "name": "(BELI 2pcs DAPAT HADIAH) BITZEN Ikat Pinggang Pria Premium Dengan Bahan Aluminium Zinc Alloy dan Nylon Canvas Sabuk - Hitam, 120",
+        "originalPrice": 115000,
+        "stock": 376,
+      }
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```
+
+---
+
+### GET /getAllReviewByProduct
+
+Mengambil semua review berdasarkan product tertentu
+
+#### Query Parameters
+
+- `product` (string, required): Product ID to filter reviews.
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "id": 5368,
+        "productId": 1,
+        "rating": 5,
+        "review": "jam fungsi kelihatannewah sesuai harap",
+        "tanggal": "Sun, 01 Dec 2024 10:55:59 GMT"
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```
+
+---
+
+### GET /getAllReviewByCategory
+
+Mengambil semua review dengan kategori tertentu
+
+#### Query Parameters
+
+- `category` (string, required): Category ID to filter reviews.
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "id": 1070,
+        "productId": 6,
+        "rating": 4,
+        "review": "bagus rekomedasi hadiah sukses trimakasih paket darat tuju aman",
+        "tanggal": "Sat, 01 Mar 2025 10:55:59 GMT"
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```

@@ -305,3 +305,39 @@ Mengambil semua review dengan kategori tertentu
     "data": null
   }
   ```
+
+### GET /getSentimentByProduct
+
+Mengambil semua review dengan kategori tertentu
+
+#### Query Parameters
+
+- `product` (string, required): product id untuk filter sentiment.
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Prediction succeeded",
+    "data": [
+      {
+        "productId": 7,
+        "sentiment_negative": 0,
+        "sentiment_neutral": 987,
+        "sentiment_positive": 1
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Prediction failed",
+    "data": null
+  }
+  ```

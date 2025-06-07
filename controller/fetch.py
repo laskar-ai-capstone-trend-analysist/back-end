@@ -49,10 +49,10 @@ def getAllReviews():
   except Exception as e:
     print('Error fetching the data', e)
     return jsonify({
-      'error': True,
-      'message': 'Error fetching data',
-      'data': None
-    }), 500
+        'error': True,
+        'message': 'Error fetching data',
+        'data': None
+      }), 500
 
 def getAllProductsByCategory(categoryId):
   try:
@@ -101,3 +101,21 @@ def getAllReviewsByCategory(categoryId):
       'message': 'Error fetching data',
       'data': None
     }), 500
+  
+def getSentimentPrediction(productId):
+  try:
+    result = getSentimentByProduct(productId)
+    return jsonify({
+        'error': False,
+        'message': 'Prediction succeeded',
+        'data': result
+    }), 200
+  except Exception as e:
+    print('Error fetching the data', e)
+    return jsonify({
+      'error': True,
+      'message': 'Prediction failed',
+      'data': None
+    }), 500
+
+

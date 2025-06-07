@@ -65,3 +65,15 @@ def getReviewsByCategory(categoryId):
   except Exception as e:
     print('Error fetching the data', e)
     return None
+  
+
+def getSentimentByProduct(productId):
+  try:
+    dbCursor.execute(f'SELECT productId, sentiment_positive, sentiment_negative, sentiment_neutral FROM prediction WHERE productId = {productId}')
+    result = dbCursor.fetchall()
+    column_names = dbCursor.column_names
+    result = [dict(zip(column_names, row)) for row in result]
+    return result
+  except Exception as e:
+    print('Error fetching the data', e)
+    return None

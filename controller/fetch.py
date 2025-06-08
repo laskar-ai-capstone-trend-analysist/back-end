@@ -118,4 +118,20 @@ def getSentimentPrediction(productId):
       'data': None
     }), 500
 
+def getProductsByName(name):
+  try:
+    result = getAllProductsByName(name.lower())
+    return jsonify({
+        'error': False,
+        'message': 'Data fetched successfully',
+        'data': result
+    }), 200
+  except Exception as e:
+    print('Error fetching the data', e)
+    return jsonify({
+      'error': True,
+      'message': 'Error fetching data',
+      'data': None
+    }), 500
+
 

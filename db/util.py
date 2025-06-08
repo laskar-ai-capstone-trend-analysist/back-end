@@ -77,3 +77,14 @@ def getSentimentByProduct(productId):
   except Exception as e:
     print('Error fetching the data', e)
     return None
+
+def getAllProductsByName(name):
+  try:
+    dbCursor.execute(f'SELECT * FROM product WHERE LOWER(name) LIKE \'%{name}%\'')
+    result = dbCursor.fetchall()
+    column_names = dbCursor.column_names
+    result = [dict(zip(column_names, row)) for row in result]
+    return result
+  except Exception as e:
+    print('Error fetching the data', e)
+    return None

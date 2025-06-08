@@ -341,3 +341,43 @@ Mengambil semua review dengan kategori tertentu
     "data": null
   }
   ```
+
+### GET /getAllProductsByName
+
+Mengambil semua product yang memiliki kempiripan nama dengan keyword
+
+#### Query Parameters
+
+- `name` (string, required): keyword untuk mencari product.
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false
+    "message": "Data fetched successfully",
+    "data": [
+      {
+        "categoryId": 3,
+        "currentPrice": 8299000,
+        "discount": 20.95,
+        "id": 2,
+        "imgUrl": "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2024/12/11/8eb8652e-eb2f-4464-8ce9-7d61054b907e.png.webp?ect=4g",
+        "name": "APPLE IPHONE 15 IBOX 512GB 256GB 128GB - IPHONE 14 - IPHONE 13 GARANSI RESMI INDONESIA NEW SEGEL GREEN PEEL - IPHONE 13 128GB",
+        "originalPrice": 10499000,
+        "stock": 44
+      },
+      ..,
+      ..
+    ]
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```

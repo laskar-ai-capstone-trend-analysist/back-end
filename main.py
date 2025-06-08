@@ -47,5 +47,12 @@ def fetchSentimentReviewsByProduct():
   response = getSentimentPrediction(productId)
   return response
 
+
+@app.route('/getAllProductsByName', methods=['GET'])
+def fetchAllProductsByName():
+  name = request.args.get('name')
+  response = getProductsByName(name)
+  return response
+
 if __name__ == '__main__':
   app.run(debug=True)

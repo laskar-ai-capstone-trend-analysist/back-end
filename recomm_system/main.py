@@ -14,8 +14,6 @@ from .text_preprocessing import preprocess_text
 def prepare_data():
   df = getAllProduct()
   df = pd.DataFrame.from_dict(df)
-  # Ambil 30 data teratas, karena jika semuanya sangat berat, bisa dihapus untuk menggunakan seluruh dataset
-  df = df.head(30)
   # Set original price = current price jika tidak ada discount
   df.loc[df['discount'] == 0.0, 'originalPrice'] = df['currentPrice']
 

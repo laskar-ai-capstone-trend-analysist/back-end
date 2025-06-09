@@ -1,10 +1,9 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from db.util import *
-
 from flask import jsonify
+from recomm_system.main import recomend
 
 def getAllProducts():
   try:
@@ -134,4 +133,18 @@ def getProductsByName(name):
       'data': None
     }), 500
 
-
+def recomend_products(productId):
+  try:
+    result = recomend(productId)
+    return jsonify({
+        'error': False,
+        'message': 'Data fetched successfully',
+        'data': result
+    }), 200
+  except Exception as e:
+    print('Error fetching the data', e)
+    return jsonify({
+      'error': True,
+      'message': 'Error fetching data',
+      'data': None
+    }), 500

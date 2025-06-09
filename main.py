@@ -54,5 +54,12 @@ def fetchAllProductsByName():
   response = getProductsByName(name)
   return response
 
+@app.route('/getRecommendProducts', methods=['GET'])
+def fetchRecommendProductsByName():
+  productId = request.args.get('product')
+  response = recomend_products(productId)
+  return response
+
+
 if __name__ == '__main__':
   app.run(debug=True)

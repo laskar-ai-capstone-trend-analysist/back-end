@@ -422,3 +422,33 @@ Mengambil semua product yang memiliki kempiripan dengan product yang dipilih ber
     "data": null
   }
   ```
+
+### GET /getReviewsSumOfProduct
+
+Mengambil rangkuman review dari suatu product
+
+#### Query Parameters
+
+- `product` (string, required): product id untuk mencari review berdasarkan product.
+
+#### Responses
+
+- **200 OK**:
+  ```json
+  {
+    "error": false,
+    "message": "Summarization succeed",
+    "data": {
+      "productId": "1",
+      "summary": "barang bagus,bagus bahan bagus,sesuai bagus"
+    }
+  }
+  ```
+- **500**:
+  ```json
+  {
+    "error": true,
+    "message": "Error fetching data",
+    "data": null
+  }
+  ```

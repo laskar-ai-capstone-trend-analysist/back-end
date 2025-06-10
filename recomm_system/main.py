@@ -40,6 +40,7 @@ def getScoreById(scores, ind):
 def recomend(productId):
   features, knowledge_df = prepare_data()
   cos_sim = cosine_similarity(features)
+  print(cos_sim)
   product_index = knowledge_df[knowledge_df['id'] == int(productId)].index[0]
   similarities = list(enumerate(cos_sim[product_index]))
   similar_products = sorted(similarities, key=lambda x: x[1], reverse=True)

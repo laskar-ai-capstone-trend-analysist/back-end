@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from db.util import *
 from flask import jsonify
 from recomm_system.main import recomend
+from review_summarization.main import lexrank_summarizer
 
 def getAllProducts():
   try:
@@ -146,5 +147,26 @@ def recomend_products(productId):
     return jsonify({
       'error': True,
       'message': 'Error fetching data',
+      'data': None
+    }), 500
+
+def getReviewsSumByProduct(productId):
+  try:
+    result = getReviewsByProduct(productId)
+    reviews = [item['review'] for item in result]
+    summary = lexrank_summarizer(reviews)
+    return jsonify({
+        'error': False,
+        'message': 'Summarization succeed',
+        'data': {
+          'productId': productId,
+          'summary': summary
+        }
+    }), 200
+  except Exception as e:
+    print('Error fetching the data', e)
+    return jsonify({
+      'error': True,
+      'message': 'Summarization failed',
       'data': None
     }), 500

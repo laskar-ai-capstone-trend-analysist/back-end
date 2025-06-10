@@ -2,7 +2,6 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from .setup import *
-import json
 
 def getAllProduct():
   try:
@@ -88,31 +87,6 @@ def getAllProductsByName(name):
     result = dbCursor.fetchall()
     column_names = dbCursor.column_names
     result = [dict(zip(column_names, row)) for row in result]
-    return result
-  except Exception as e:
-    print('Error fetching the data', e)
-    return None
-  
-# def getRecommendProducts(productId):
-#   try:
-#     recom_result = recomend(productId)
-
-#     for (idx, recom_score) in recom_result:
-
-
-#     return result
-#   except Exception as e:
-#     print('Error fetching the data', e)
-#     return None
-
-def getProductsByIds(ids):
-  try:
-    ids = json.dumps(ids)
-    dbCursor.execute(f'SELECT * FROM product WHERE id IN (%s)', (ids,))
-    result = dbCursor.fetchall()
-    column_names = dbCursor.column_names
-    result = [dict(zip(column_names, row)) for row in result]
-    print(result)
     return result
   except Exception as e:
     print('Error fetching the data', e)

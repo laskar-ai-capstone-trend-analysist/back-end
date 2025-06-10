@@ -60,6 +60,12 @@ def fetchRecommendProductsByName():
   response = recomend_products(productId)
   return response
 
+@app.route('/getReviewsSumOfProduct', methods=['GET'])
+def fetchReviewsSumOfProduct():
+  productId = request.args.get('product')
+  response = getReviewsSumByProduct(productId)
+  return response
+
 
 if __name__ == '__main__':
   app.run(debug=True)
